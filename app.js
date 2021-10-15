@@ -8,15 +8,19 @@ let tiles = [];
 
 tiles = createImageTiles();
 
+setGame();
+
+// functions
+
 function setGame() {
+  container.innerHTML = "";
   tiles = createImageTiles();
   tiles.forEach((tile) => container.appendChild(tile));
   setTimeout(() => {
+    container.innerHTML = "";
     shuffleImage(tiles).forEach((tile) => container.appendChild(tile));
   }, 2000);
 }
-
-setGame();
 
 function shuffleImage(array) {
   let index = array.length - 1;
@@ -35,8 +39,22 @@ function createImageTiles() {
     .forEach((a, i) => {
       const li = document.createElement("li");
       li.setAttribute("data-index", i);
+      li.setAttribute("draggable", "true");
       li.classList.add(`list${i}`);
       tempArray.push(li);
     });
   return tempArray;
 }
+
+//event
+
+container.addEventListener("dragstart", (e) => {
+  console.log(e);
+});
+
+container.addEventListener("dragover", (e) => {
+  console.log(e);
+});
+container.addEventListener("drop", (e) => {
+  console.log(e);
+});
