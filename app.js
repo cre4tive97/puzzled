@@ -68,6 +68,7 @@ function checkStatus() {
   if (unMatchedList.length === 0) {
     gameFinish.style.display = "block";
     isPlaying = false;
+    clearInterval(timer);
   }
 }
 
