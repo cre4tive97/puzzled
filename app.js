@@ -5,6 +5,11 @@ const playtime = document.querySelector(".container__playtime");
 
 let tileCount = 16;
 let tiles = [];
+let dragged = {
+  el: "",
+  class: "",
+  index: 0,
+};
 
 tiles = createImageTiles();
 
@@ -49,12 +54,16 @@ function createImageTiles() {
 //event
 
 container.addEventListener("dragstart", (e) => {
-  console.log(e);
+  const obj = e.target;
+  dragged.el = obj;
+  dragged.class = e.target.className;
+  dragged.index = [...e.target.parentNode.children].indexOf(e.target);
+  console.log(dragged.el);
+  console.log(dragged.class);
+  console.log(dragged.index);
 });
 
 container.addEventListener("dragover", (e) => {
-  console.log(e);
+  e.preventDefault();
 });
-container.addEventListener("drop", (e) => {
-  console.log(e);
-});
+container.addEventListener("drop", (e) => {});
