@@ -66,4 +66,12 @@ container.addEventListener("dragstart", (e) => {
 container.addEventListener("dragover", (e) => {
   e.preventDefault();
 });
-container.addEventListener("drop", (e) => {});
+container.addEventListener("drop", (e) => {
+  const obj = e.target;
+  if (obj.className !== dragged.class) {
+    const droppedIndex = [...obj.parentNode.children].indexOf(e.target);
+    dragged.index > droppedIndex
+      ? obj.before(dragged.el)
+      : obj.after(dragged.el);
+  }
+});
