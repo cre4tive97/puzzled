@@ -51,6 +51,16 @@ function createImageTiles() {
   return tempArray;
 }
 
+function checkStatus() {
+  const currentList = [...container.children];
+  const unMatchedList = currentList.filter(
+    (li, i) => Number(li.getAttribute("data-index")) !== i
+  );
+  if (unMatchedList.length === 0) {
+    //game-finish
+  }
+}
+
 //event
 
 container.addEventListener("dragstart", (e) => {
@@ -84,5 +94,6 @@ container.addEventListener("drop", (e) => {
       ? obj.before(dragged.el)
       : obj.after(dragged.el);
     isLast ? originPlace.after(obj) : originPlace.before(obj);
+    checkStatus();
   }
 });
