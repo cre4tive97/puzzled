@@ -19,11 +19,12 @@ tiles = createImageTiles();
 
 setGame();
 
-// functions
-
 function setGame() {
   isPlaying = true;
+  timerCount = 0;
   container.innerHTML = "";
+  gameFinish.style.display = "none";
+  clearInterval(timer);
   timer = setInterval(() => {
     playtime.innerHTML = timerCount;
     timerCount++;
@@ -71,8 +72,6 @@ function checkStatus() {
     clearInterval(timer);
   }
 }
-
-//event
 
 container.addEventListener("dragstart", (e) => {
   if (isPlaying !== false) {

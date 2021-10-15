@@ -27,9 +27,7 @@
 li {
   width: 100px;
   height: 100px;
-  border: 1px solid black;
-  color: white;
-  background: url("https://placeimg.com/400/400/2");
+  background: url("https://placeimg.com/400/400/any");
 }
 
 .start-btn {
@@ -44,7 +42,10 @@ li {
   position: absolute;
   font-size: 3rem;
   color: black;
-  display: none;
+  background-color: white;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 16px;
 }
 
 .list0 {
