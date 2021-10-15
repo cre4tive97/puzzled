@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container__playtime {
+  font-size: 2rem;
+  margin-top: 2rem;
+  color: black;
+}
+
+.container__ul {
+  margin-top: 1rem;
+  list-style: none;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+li {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  color: white;
+  background: url("https://placeimg.com/400/400/any");
+}
+
+.start-btn {
+  background-color: black;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+}
+.game-finish {
+  position: absolute;
+  font-size: 3rem;
+  color: black;
+  display: none;
+}
