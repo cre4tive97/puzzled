@@ -8,16 +8,24 @@ let tiles = [];
 
 tiles = createImageTiles();
 
-shuffleImage(tiles.forEach((tile) => container.appendChild(tile)));
+function setGame() {
+  tiles = createImageTiles();
+  tiles.forEach((tile) => container.appendChild(tile));
+  setTimeout(() => {
+    shuffleImage(tiles).forEach((tile) => container.appendChild(tile));
+  }, 2000);
+}
 
-function shuffleImage(arr) {
-  let index = arr.length - 1;
+setGame();
+
+function shuffleImage(array) {
+  let index = array.length - 1;
   while (index > 0) {
     const randomIndex = Math.floor(Math.random() * (index + 1));
-    [arr[index], arr[randomIndex]] = [arr[randomIndex], arr[index]];
+    [array[index], array[randomIndex]] = [array[randomIndex], array[index]];
     index--;
   }
-  return arr;
+  return array;
 }
 
 function createImageTiles() {
